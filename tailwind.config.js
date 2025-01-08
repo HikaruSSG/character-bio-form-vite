@@ -10,7 +10,19 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       colors: {
-        background: 'hsl(var(--background))',
+        background: {
+          50: '#0b0f0f',
+          100: '#151e1e',
+          200: '#2a3c3c',
+          300: '#3f5a5a',
+          400: '#557777',
+          500: '#6a9595',
+          600: '#88aaaa',
+          700: '#a5c0c0',
+          800: '#c3d5d5',
+          900: '#e1eaea',
+          950: '#f0f4f4',
+        },
         foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
@@ -20,21 +32,61 @@ export default {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))'
         },
+        text: {
+          50: '#0b0f0f',
+          100: '#151e1e',
+          200: '#2a3c3c',
+          300: '#3f5a5a',
+          400: '#557777',
+          500: '#6a9595',
+          600: '#88aaaa',
+          700: '#a5c0c0',
+          800: '#c3d5d5',
+          900: '#e1eaea',
+          950: '#f0f4f4',
+        },
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))'
+          50: '#090f11',
+          100: '#121f21',
+          200: '#233e43',
+          300: '#355c64',
+          400: '#467b86',
+          500: '#589aa7',
+          600: '#79aeb9',
+          700: '#9bc2ca',
+          800: '#bcd7dc',
+          900: '#deebed',
+          950: '#eef5f6',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))'
+          50: '#081012',
+          100: '#102023',
+          200: '#204146',
+          300: '#2f616a',
+          400: '#3f818d',
+          500: '#4fa1b0',
+          600: '#72b4c0',
+          700: '#95c7d0',
+          800: '#b9dadf',
+          900: '#dcecef',
+          950: '#edf6f7',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))'
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
+          50: '#071112',
+          100: '#0e2125',
+          200: '#1c424a',
+          300: '#2a636f',
+          400: '#388594',
+          500: '#46a6b9',
+          600: '#6bb8c7',
+          700: '#90c9d5',
+          800: '#b5dbe3',
+          900: '#daedf1',
+          950: '#edf6f8',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -59,7 +111,7 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
-        }
+        },
       },
       keyframes: {
         'accordion-down': {
