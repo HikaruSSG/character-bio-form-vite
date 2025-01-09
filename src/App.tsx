@@ -87,9 +87,10 @@ function App() {
               <Input
                 type="text"
                 placeholder="Hobby"
+                placeholder:text-primary-500
                 value={hobby}
                 onChange={(e) => handleHobbyChange(index, e.target.value)}
-                className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50"
+                className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500"
               />
               {/* Button to remove a hobby (only shown for hobbies after the first one) */}
               {index > -1 && (
@@ -104,7 +105,7 @@ function App() {
             </div>
           ))}
           {/* Button to add a new hobby */}
-          <Button type="button" onClick={handleAddHobby} className="mt-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">Add Hobby</Button>
+          <Button type="button" onClick={handleAddHobby} className="mt-2 px-4 py-2 bg-primary-300 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">Add Hobby</Button>
         </div>
         {/* Textarea for the character's story */}
         <div>
@@ -125,17 +126,19 @@ function App() {
               <Input
                 type="text"
                 placeholder="Character"
+                placeholder:text-primary-500
                 value={relation.character}
                 onChange={(e) => handleRelationChange(index, 'character', e.target.value)}
-                className="rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50"
+                className="rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500"
               />
               {/* Input field for the relation type */}
               <Input
                 type="text"
                 placeholder="Relation"
+                placeholder:text-primary-500
                 value={relation.relation}
                 onChange={(e) => handleRelationChange(index, 'relation', e.target.value)}
-                className="rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50"
+                className="rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500"
               />
               {/* Button to remove a relation (only shown for relations after the first one) */}
               {index > -1 && (
@@ -150,7 +153,7 @@ function App() {
             </div>
           ))}
           {/* Button to add a new relation */}
-          <Button type="button" onClick={handleAddRelation} className="mt-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">Add Relation</Button>
+          <Button type="button" onClick={handleAddRelation} className="mt-2 px-4 py-2 bg-primary-300 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">Add Relation</Button>
         </div>
       </div>
     </div>
