@@ -8,6 +8,15 @@ import { Select, SelectTrigger, SelectContent, SelectItem } from "./components/u
 
 // Main application component
 function App() {
+  // State for form fields
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [occupation, setOccupation] = useState('');
+  const [personality, setPersonality] = useState('');
+  const [story, setStory] = useState('');
+  const [relation, setRelation] = useState('');
+
   // State for managing hobbies, initialized with one empty string
   const [hobbies, setHobbies] = useState([{ id: crypto.randomUUID(), value: '' }]);
   // State for managing relations with other characters, initialized with one empty relation
@@ -43,27 +52,75 @@ function App() {
     setRelations(newRelations);
   };
 
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!name) {
+      alert('Name is required');
+      return;
+    }
+
+    if (!age) {
+        alert('Age is required');
+        return;
+    }
+
+    if (isNaN(Number(age))) {
+        alert('Age must be a number');
+        return;
+    }
+
+    if (!gender) {
+      alert('Gender is required');
+      return;
+    }
+
+    if (hobbies.every(hobby => !hobby.value)) {
+      alert('At least one hobby is required');
+      return;
+    }
+
+    if (relations.every(relation => !relation.character || !relation.relation)) {
+      alert('At least one relation is required');
+      return;
+    }
+
+    const formData = {
+      name,
+      age,
+      gender,
+      occupation,
+      personality,
+      story,
+      relation,
+      hobbies: hobbies.map(hobby => hobby.value),
+      relations: relations.map(relation => ({ character: relation.character, relation: relation.relation })),
+    };
+    localStorage.setItem('characterBio', JSON.stringify(formData));
+    alert('Data saved to local storage!');
+  };
+
   // JSX structure for the application
   return (
-    <form className="container mx-auto p-6 max-w-xl bg-white shadow-md rounded-xl">
+    <form onSubmit={handleSubmit} className="container mx-auto p-6 max-w-xl bg-white shadow-md rounded-xl">
       <h1 className="text-3xl font-bold mb-6 text-center">Character Bio</h1>
       <div className="grid gap-6">
         {/* Input field for the character's name */}
         <div>
           <Label htmlFor="name" className="block font-medium text-primary-400 mb-2">Name</Label>
-          <Input type="text" id="name" placeholder="Character Name" className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50" />
+          <Input type="text" id="name" placeholder="Character Name" value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
         </div>
         {/* Input field for the character's age */}
         <div>
           <Label htmlFor="age" className="block font-medium text-primary-400 mb-2">Age</Label>
-          <Input type="number" id="age" placeholder="Age" className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50" />
+          <Input type="number" id="age" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
         </div>
         {/* Select field for the character's gender */}
         <div>
           <Label htmlFor="gender" className="block font-medium text-primary-400 mb-2">Gender</Label>
-          <Select>
-            <SelectTrigger className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50">Select gender</SelectTrigger>
-            <SelectContent>
+          <Select value={gender} onValueChange={setGender}>
+            <SelectTrigger className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2">Select gender</SelectTrigger>
+            <SelectContent className=' bg-white'>
               <SelectItem value="male">Male</SelectItem>
               <SelectItem value="female">Female</SelectItem>
             </SelectContent>
@@ -72,12 +129,12 @@ function App() {
         {/* Input field for the character's occupation */}
         <div>
           <Label htmlFor="occupation" className="block font-medium text-primary-400 mb-2">Occupation</Label>
-          <Input type="text" id="occupation" placeholder="Occupation" className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50" />
+          <Input type="text" id="occupation" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
         </div>
         {/* Textarea for the character's personality */}
         <div>
           <Label htmlFor="personality" className="block font-medium text-primary-400 mb-2">Personality</Label>
-          <Textarea id="personality" placeholder="Personality" className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50" />
+          <Textarea id="personality" placeholder="Personality" value={personality} onChange={(e) => setPersonality(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
         </div>
         {/* Section for managing hobbies */}
         <div>
@@ -90,7 +147,7 @@ function App() {
                 placeholder:text-primary-500
                 value={hobby.value}
                 onChange={(e) => handleHobbyChange(hobbies.findIndex(h => h.id === hobby.id), e.target.value)}
-                className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500"
+                className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500 border-2"
               />
               {/* Button to remove a hobby (only shown for hobbies after the first one) */}
               {hobbies.length > 1 && (
@@ -103,23 +160,23 @@ function App() {
             </div>
           ))}
           {/* Button to add a new hobby */}
-          <Button type="button" onClick={handleAddHobby} className="mt-2 px-4 py-2 bg-primary-300 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">Add Hobby</Button>
+          <Button type="button" onClick={handleAddHobby} className="mt-2 px-4 py-2 bg-primary-300 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 w-full">Add Hobby</Button>
         </div>
         {/* Textarea for the character's story */}
         <div>
           <Label htmlFor="story" className="block font-medium text-primary-400 mb-2">Story</Label>
-          <Textarea id="story" placeholder="Story" className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50" />
+          <Textarea id="story" placeholder="Story" value={story} onChange={(e) => setStory(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
         </div>
         {/* Input field for the character's relation to the user */}
         <div>
           <Label htmlFor="relation" className="block font-medium text-primary-400 mb-2">Relation to You</Label>
-          <Input type="text" id="relation" placeholder="Relation to You" className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50" />
+          <Input type="text" id="relation" placeholder="Relation to You" value={relation} onChange={(e) => setRelation(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
         </div>
         {/* Section for managing relations with other characters */}
         <div>
           <Label className="block font-medium text-primary-400 mb-2">Relation to Other Characters</Label>
           {relations.map((relation) => (
-            <div key={relation.id} className="grid grid-cols-3 gap-2 mb-2 items-center">
+            <div key={relation.id} className="flex gap-2 mb-2 items-center w-auto">
               {/* Input field for the related character's name */}
               <Input
                 type="text"
@@ -127,7 +184,7 @@ function App() {
                 placeholder:text-primary-500
                 value={relation.character}
                 onChange={(e) => handleRelationChange(relations.findIndex(r => r.id === relation.id), 'character', e.target.value)}
-                className="rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500"
+                className="rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500 border-2"
               />
               {/* Input field for the relation type */}
               <Input
@@ -136,25 +193,44 @@ function App() {
                 placeholder:text-primary-500
                 value={relation.relation}
                 onChange={(e) => handleRelationChange(relations.findIndex(r => r.id === relation.id), 'relation', e.target.value)}
-                className="rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500"
+                className="rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 placeholder:text-primary-500 border-2"
               />
               {/* Button to remove a relation (only shown for relations after the first one) */}
               {relations.length > 1 && (
                 <Button variant="outline" size="icon" onClick={() => {
                   setRelations(relations.filter(r => r.id !== relation.id));
-                }} className="rounded-xl border border-primary-300 w-auto">
+                }} className="rounded-xl border border-primary-300 w-auto px-2 py-1 w-96">
                   Delete
                 </Button>
               )}
             </div>
           ))}
           {/* Button to add a new relation */}
-          <Button type="button" onClick={handleAddRelation} className="mt-2 px-4 py-2 bg-primary-300 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">Add Relation</Button>
+          <Button type="button" onClick={handleAddRelation} className="mt-2 px-4 py-2 bg-primary-300 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 w-full">Add Relation</Button>
         </div>
       </div>
       <Button type="submit" className="mt-6 px-4 py-2 bg-primary-300 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 w-full">Submit</Button>
+      <Button type="button" onClick={handleDownload} className="mt-2 px-4 py-2 bg-primary-300 text-white rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 w-full">Download</Button>
     </form>
   );
+
+  function handleDownload() {
+    const savedData = localStorage.getItem('characterBio');
+    if (savedData) {
+      const jsonData = JSON.stringify(JSON.parse(savedData), null, 2);
+      const blob = new Blob([jsonData], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${name}.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } else {
+      alert('No data saved yet!');
+    }
+  }
 }
 
 export default App;

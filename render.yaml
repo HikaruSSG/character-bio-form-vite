@@ -1,0 +1,10 @@
+service:
+  name: character-bio-creator
+  env: production
+  build:
+    command: yarn install && yarn build
+  start:
+    command: yarn preview
+  envVars:
+    - key: VITE_BASE_URL
+      value: /
