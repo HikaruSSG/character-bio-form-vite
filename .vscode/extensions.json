@@ -1,5 +1,23 @@
 {
     "recommendations": [
-        "saoudrizwan.claude-dev"
+        "saoudrizwan.claude-dev",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "dsznajder.es7-react-js-snippets",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next",
+        "formulahendry.auto-rename-tag",
+        "streetsidesoftware.code-spell-checker",
+        "naumovs.color-highlight",
+        "mikestead.dotenv",
+        "eamodio.gitlens",
+        "PKief.material-icon-theme",
+        "ritwickdey.LiveServer",
+        "anotherglitchinthematrix.monochrome",
+        "TabNine.tabnine-vscode",
+        "aaron-bond.better-comments",
+        "mhutchie.git-graph",
+        "stivo.tailwind-fold",
+        "oderwat.indent-rainbow"
     ]
 }
