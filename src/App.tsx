@@ -8,6 +8,7 @@ import { Select, SelectTrigger, SelectContent, SelectItem } from "./components/u
 
 // Main application component
 function App() {
+  //App title
   // State for form fields
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -103,38 +104,38 @@ function App() {
   // JSX structure for the application
   return (
     <form onSubmit={handleSubmit} className="container mx-auto p-6 max-w-xl bg-white shadow-md rounded-xl">
-      <h1 className="text-3xl font-bold mb-6 text-center">Character Bio</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-accent-300">Character Bio</h1>
       <div className="grid gap-6">
         {/* Input field for the character's name */}
         <div>
           <Label htmlFor="name" className="block font-medium text-primary-400 mb-2">Name</Label>
-          <Input type="text" id="name" placeholder="Character Name" value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
+          <Input type="text" id="name" placeholder="Character Name" value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
         </div>
         {/* Input field for the character's age */}
         <div>
           <Label htmlFor="age" className="block font-medium text-primary-400 mb-2">Age</Label>
-          <Input type="number" id="age" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
+          <Input type="number" id="age" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
         </div>
         {/* Select field for the character's gender */}
         <div>
           <Label htmlFor="gender" className="block font-medium text-primary-400 mb-2">Gender</Label>
           <Select value={gender} onValueChange={setGender}>
-            <SelectTrigger className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2">Select gender</SelectTrigger>
-            <SelectContent className=' bg-white'>
-              <SelectItem value="male">Male</SelectItem>
-              <SelectItem value="female">Female</SelectItem>
+            <SelectTrigger className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 text-primary-500">{gender ? gender : "Select gender"}</SelectTrigger>
+            <SelectContent className='bg-white'>
+              <SelectItem className='text-primary-500' value="Male">Male</SelectItem>
+              <SelectItem className='text-primary-500' value="Female">Female</SelectItem>
             </SelectContent>
           </Select>
         </div>
         {/* Input field for the character's occupation */}
         <div>
           <Label htmlFor="occupation" className="block font-medium text-primary-400 mb-2">Occupation</Label>
-          <Input type="text" id="occupation" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
+          <Input type="text" id="occupation" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
         </div>
         {/* Textarea for the character's personality */}
         <div>
           <Label htmlFor="personality" className="block font-medium text-primary-400 mb-2">Personality</Label>
-          <Textarea id="personality" placeholder="Personality" value={personality} onChange={(e) => setPersonality(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
+          <Textarea id="personality" placeholder="Personality" value={personality} onChange={(e) => setPersonality(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
         </div>
         {/* Section for managing hobbies */}
         <div>
@@ -153,7 +154,7 @@ function App() {
               {hobbies.length > 1 && (
                 <Button variant="outline" size="icon" onClick={() => {
                   setHobbies(hobbies.filter(h => h.id !== hobby.id));
-                }} className="rounded-xl border border-primary-300 w-60">
+                }} className="rounded-xl border-2 border-primary-300 w-60 text-primary-400">
                   Delete
                 </Button>
               )}
@@ -165,12 +166,12 @@ function App() {
         {/* Textarea for the character's story */}
         <div>
           <Label htmlFor="story" className="block font-medium text-primary-400 mb-2">Story</Label>
-          <Textarea id="story" placeholder="Story" value={story} onChange={(e) => setStory(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
+          <Textarea id="story" placeholder="Story" value={story} onChange={(e) => setStory(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
         </div>
         {/* Input field for the character's relation to the user */}
         <div>
           <Label htmlFor="relation" className="block font-medium text-primary-400 mb-2">Relation to You</Label>
-          <Input type="text" id="relation" placeholder="Relation to You" value={relation} onChange={(e) => setRelation(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2" />
+          <Input type="text" id="relation" placeholder="Relation to You" value={relation} onChange={(e) => setRelation(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
         </div>
         {/* Section for managing relations with other characters */}
         <div>
@@ -199,7 +200,7 @@ function App() {
               {relations.length > 1 && (
                 <Button variant="outline" size="icon" onClick={() => {
                   setRelations(relations.filter(r => r.id !== relation.id));
-                }} className="rounded-xl border border-primary-300 w-auto px-2 py-1 w-96">
+                }} className="rounded-xl border-2 border-primary-300 w-60 text-primary-400">
                   Delete
                 </Button>
               )}
