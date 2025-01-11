@@ -49,3 +49,23 @@ The component renders a form with various input fields and controls, including:
 - Buttons to add new hobbies and relations.
 - A submit button to save the character bio.
 - A download button to download the saved data.
+
+## Available Scripts
+
+### Using Yarn
+
+- `yarn dev`: Runs the development server.
+- `yarn build`: Builds the application for production.
+- `yarn lint`: Runs the linter.
+- `yarn preview`: Previews the production build locally.
+- `yarn test`: Runs the tests.
+- `yarn postbuild`: Runs postbuild tasks.
+
+### Using npm
+
+- `npm run dev`: Runs the development server.
+- `npm run build`: Builds the application for production.
+- `npm run lint`: Runs the linter.
+- `npm run preview`: Previews the production build locally.
+- `npm run test`: Runs the tests.
+- `npm run postbuild`: Runs postbuild tasks.
