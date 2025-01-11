@@ -1,3 +1,4 @@
 module.exports = {
-  plugins: ["@babel/plugin-syntax-decorators"],
+  presets: ["@babel/preset-react"],
+  plugins: ["@babel/plugin-proposal-decorators", "@babel/plugin-syntax-decorators", "tailwindcss"],
 };
