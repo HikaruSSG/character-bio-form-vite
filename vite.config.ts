@@ -18,6 +18,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "\\.css$": path.resolve(__dirname, "./src/empty.js"),
     },
   },
   build: {

@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "postbuild": "purgecss --css dist/asset/*.css --content dist/index.html dist/asset/*.js --output dist/asset",
-    "test": "playwright test"
+    "test": "node tests/test-runner.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

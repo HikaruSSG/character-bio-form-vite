@@ -76,16 +76,6 @@ function App() {
       return;
     }
 
-    if (hobbies.every(hobby => !hobby.value)) {
-      alert('At least one hobby is required');
-      return;
-    }
-
-    if (relations.every(relation => !relation.character || !relation.relation)) {
-      alert('At least one relation is required');
-      return;
-    }
-
     const formData = {
       name,
       age,
@@ -135,7 +125,11 @@ function App() {
         {/* Textarea for the character's personality */}
         <div>
           <Label htmlFor="personality" className="block font-medium text-primary-400 mb-2">Personality</Label>
-          <Textarea id="personality" placeholder="Personality" value={personality} onChange={(e) => setPersonality(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
+          <Textarea id="personality" placeholder="Personality" value={personality} onChange={(e) => {
+            setPersonality(e.target.value);
+            e.target.style.height = 'auto';
+            e.target.style.height = `${e.target.scrollHeight}px`;
+          }} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
         </div>
         {/* Section for managing hobbies */}
         <div>
@@ -166,7 +160,11 @@ function App() {
         {/* Textarea for the character's story */}
         <div>
           <Label htmlFor="story" className="block font-medium text-primary-400 mb-2">Story</Label>
-          <Textarea id="story" placeholder="Story" value={story} onChange={(e) => setStory(e.target.value)} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
+          <Textarea id="story" placeholder="Story" value={story} onChange={(e) => {
+            setStory(e.target.value);
+            e.target.style.height = 'auto';
+            e.target.style.height = `${e.target.scrollHeight}px`;
+          }} className="w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 placeholder:text-primary-500" />
         </div>
         {/* Input field for the character's relation to the user */}
         <div>

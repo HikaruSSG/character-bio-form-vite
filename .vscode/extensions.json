@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "saoudrizwan.claude-dev",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "dsznajder.es7-react-js-snippets",
@@ -18,6 +17,70 @@
         "aaron-bond.better-comments",
         "mhutchie.git-graph",
         "stivo.tailwind-fold",
-        "oderwat.indent-rainbow"
-    ]
+        "oderwat.indent-rainbow",
+        "saoudrizwan.claude-dev",
+        "formulahendry.auto-close-tag"
+    ],
+
+   //auto install extensions
+    "extensions.autoUpdate": true,
+
+    //auto detect changes in package.json
+    "extensions.autoDetect": {
+        "enabled": true
+    },
+
+    //show all installed extensions
+    "extensions.showRecommendations": true,
+
+    //show installed extensions in the status bar
+    "extensions.showStatus": true,
+
+    //show extension updates in the status bar
+    "extensions.showUpdateNotice": true,
+
+    //show extension recommendations in the status bar
+    "extensions.showRecommendationsStatus": true,
+
+    //show installed extensions in the sidebar
+    "extensions.sidebar": true,
+
+    //show installed extensions in the activity bar
+    "extensions.activityBar": true,
+
+    //show installed extensions in the explorer view
+    "extensions.explorer": true,
+
+    //show installed extensions in the command palette
+    "extensions.commandPalette": true,
+
+    //show installed extensions in the quick open
+    "extensions.quickOpen": true,
+
+    //extensions to install
+    "extensions.autoInstall": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "dsznajder.es7-react-js-snippets",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next",
+        "formulahendry.auto-rename-tag",
+        "streetsidesoftware.code-spell-checker",
+        "naumovs.color-highlight",
+        "mikestead.dotenv",
+        "eamodio.gitlens",
+        "PKief.material-icon-theme",
+        "ritwickdey.LiveServer",
+        "anotherglitchinthematrix.monochrome",
+        "TabNine.tabnine-vscode",
+        "aaron-bond.better-comments",
+        "mhutchie.git-graph",
+        "stivo.tailwind-fold",
+        "oderwat.indent-rainbow",
+        "saoudrizwan.claude-dev",
+        "formulahendry.auto-close-tag"
+    ],
+
+    //run installation
+    "extensions.autoInstallOnCommit": true,
 }
