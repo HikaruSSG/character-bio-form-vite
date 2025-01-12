@@ -69,3 +69,57 @@ The component renders a form with various input fields and controls, including:
 - `npm run preview`: Previews the production build locally.
 - `npm run test`: Runs the tests.
 - `npm run postbuild`: Runs postbuild tasks.
+
+## Libraries Used
+
+This project uses the following libraries:
+
+### Dependencies
+
+* **@hookform/resolvers:** Form handling library.
+* **@playwright/experimental-ct-react:** Playwright testing library for React.
+* **@radix-ui/react-accordion:** UI component library. (and many other @radix-ui components)
+* **class-variance-authority:** Utility for TypeScript type checking.
+* **clsx:** Utility for joining classNames.
+* **cmdk:** (unclear from name alone)
+* **date-fns:** Date and time manipulation library.
+* **embla-carousel-react:** React carousel component.
+* **input-otp:** One-time password input component.
+* **lucide-react:** React icon library.
+* **next-themes:** Theme switching library.
+* **react:** Core React library.
+* **react-day-picker:** Date picker component.
+* **react-dom:** React DOM library.
+* **react-hook-form:** Form handling library.
+* **react-resizable-panels:** Resizable panel component.
+* **recharts:** Recharting library.
+* **sonner:** (unclear from name alone)
+* **tailwind-merge:** Utility for merging Tailwind CSS classes.
+* **tailwindcss-animate:** Tailwind CSS animation library.
+* **vaul:** (unclear from name alone)
+* **zod:** Schema validation library.
+
+
+### DevDependencies
+
+* **@babel/plugin-proposal-decorators:** Babel plugin for decorators.
+* **@eslint/js:** ESLint configuration for JavaScript.
+* **@fullhuman/postcss-purgecss:** PostCSS plugin for purging unused CSS.
+* **@playwright/test:** Playwright testing framework.
+* **@types/node:** TypeScript type definitions for Node.js.
+* **@types/react:** TypeScript type definitions for React.
+* **@types/react-dom:** TypeScript type definitions for React DOM.
+* **@vitejs/plugin-react:** Vite plugin for React.
+* **autoprefixer:** PostCSS plugin for adding vendor prefixes.
+* **eslint:** JavaScript linter.
+* **eslint-plugin-react-hooks:** ESLint plugin for React Hooks.
+* **eslint-plugin-react-refresh:** ESLint plugin for React Fast Refresh.
+* **globals:** (unclear from name alone)
+* **playwright:** End-to-end testing and automation framework.
+* **postcss:** PostCSS processor.
+* **prettier:** Code formatter.
+* **prettier-plugin-tailwindcss:** Prettier plugin for Tailwind CSS.
+* **tailwindcss:** Utility-first CSS framework.
+* **typescript:** TypeScript compiler.
+* **typescript-eslint:** ESLint configuration for TypeScript.
+* **vite:** Build tool.

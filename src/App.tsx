@@ -158,7 +158,7 @@ function App() {
           </Label>
           <Select value={gender} onValueChange={setGender}>
             <SelectTrigger className="font-semibold w-full rounded-xl border-primary-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 border-2 text-primary-500">
-              {gender ? gender : "Select gender"}
+              {gender ? gender : "Select Gender"}
             </SelectTrigger>
             <SelectContent className="bg-white">
               <SelectItem className="text-primary-500" value="Male">
