@@ -1,6 +1,6 @@
 colors: {
  'text': {
-   50: '#0b0f0f',
+   050: '#0b0f0f',
    100: '#151e1e',
    200: '#2a3c3c',
    300: '#3f5a5a',
@@ -13,7 +13,7 @@ colors: {
    950: '#f0f4f4',
  },
  'background': {
-   50: '#0b0f0f',
+   050: '#0b0f0f',
    100: '#151e1e',
    200: '#2a3c3c',
    300: '#3f5a5a',
@@ -26,7 +26,7 @@ colors: {
    950: '#f0f4f4',
  },
  'primary': {
-   50: '#090f11',
+   050: '#090f11',
    100: '#121f21',
    200: '#233e43',
    300: '#355c64',
@@ -39,7 +39,7 @@ colors: {
    950: '#eef5f6',
  },
  'secondary': {
-   50: '#081012',
+   050: '#081012',
    100: '#102023',
    200: '#204146',
    300: '#2f616a',
@@ -52,7 +52,7 @@ colors: {
    950: '#edf6f7',
  },
  'accent': {
-   50: '#071112',
+   050: '#071112',
    100: '#0e2125',
    200: '#1c424a',
    300: '#2a636f',
@@ -68,7 +68,7 @@ colors: {
 
 
 :root {
-  --color-text-50: #0b0f0f;
+  --color-text-050: #0b0f0f;
   --color-text-100: #151e1e;
   --color-text-200: #2a3c3c;
   --color-text-300: #3f5a5a;
@@ -80,7 +80,7 @@ colors: {
   --color-text-900: #e1eaea;
   --color-text-950: #f0f4f4;
 
-  --color-background-50: #0b0f0f;
+  --color-background-050: #0b0f0f;
   --color-background-100: #151e1e;
   --color-background-200: #2a3c3c;
   --color-background-300: #3f5a5a;
@@ -92,7 +92,7 @@ colors: {
   --color-background-900: #e1eaea;
   --color-background-950: #f0f4f4;
 
-  --color-primary-50: #090f11;
+  --color-primary-050: #090f11;
   --color-primary-100: #121f21;
   --color-primary-200: #233e43;
   --color-primary-300: #355c64;
@@ -104,7 +104,7 @@ colors: {
   --color-primary-900: #deebed;
   --color-primary-950: #eef5f6;
 
-  --color-secondary-50: #081012;
+  --color-secondary-050: #081012;
   --color-secondary-100: #102023;
   --color-secondary-200: #204146;
   --color-secondary-300: #2f616a;
@@ -116,7 +116,7 @@ colors: {
   --color-secondary-900: #dcecef;
   --color-secondary-950: #edf6f7;
 
-  --color-accent-50: #071112;
+  --color-accent-050: #071112;
   --color-accent-100: #0e2125;
   --color-accent-200: #1c424a;
   --color-accent-300: #2a636f;
