@@ -14,9 +14,12 @@ document.head.appendChild(author)
 
 //google search term
 const searchTerm = document.createElement('meta')
-searchTerm.name = 'keywords'
-searchTerm.content = 'character bio creator, mio, hikaru, game character bio, custom character bio'
+searchTerm.name = 'google-site-verification'
+searchTerm.content = 'google-site-verification-code'
 document.head.appendChild(searchTerm)
+
+
+//twitter card
 
 
 //favicon
