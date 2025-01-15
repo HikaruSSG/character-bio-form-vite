@@ -19,9 +19,6 @@ searchTerm.content = 'google-site-verification-code'
 document.head.appendChild(searchTerm)
 
 
-//twitter card
-
-
 //favicon
 const favicon = document.createElement('link')
 favicon.rel = 'shortcut icon'
@@ -35,6 +32,9 @@ robots.content = 'index, follow'
 document.head.appendChild(robots)
 
 //google analytics
+const googleAnalytics = document.createElement('script')
+googleAnalytics.src = 'https://www.google-analytics.com/analytics.js'
+document.body.appendChild(googleAnalytics)
 
 //SEO
 const metaDescription = 'Create a custom character bio for your favorite Anime or Anime game characters.'
@@ -42,9 +42,6 @@ const meta = document.createElement('meta')
 meta.name = 'description'
 meta.content = metaDescription
 document.head.appendChild(meta)
-
-//render app
-
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

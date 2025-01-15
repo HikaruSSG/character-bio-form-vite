@@ -1,8 +1,8 @@
-import { useState, useCallback } from "react";
-import { Input } from "./components/ui/input";
-import { Label } from "./components/ui/label";
-import { Textarea } from "./components/ui/textarea";
-import { Button } from "./components/ui/button";
+import { useState, useCallback } from "react"; // Importing React hooks for state management and memoized callbacks
+import { Input } from "./components/ui/input"; // Importing Input component for form inputs
+import { Label } from "./components/ui/label"; // Importing Label component for form labels
+import { Textarea } from "./components/ui/textarea"; // Importing Textarea component for multiline text inputs
+import { Button } from "./components/ui/button"; // Importing Button component for interactive buttons
 import { Select, SelectTrigger, SelectContent, SelectItem } from "./components/ui/select";
 import "./App.css";
 interface Hobby { id: string; value: string; } // Defines the structure for a hobby with an id and value
@@ -24,7 +24,7 @@ function App() {
     const handleAddRelation=useCallback(()=>{setRelations((prevRelations)=>[...prevRelations,{id:crypto.randomUUID(),character:"",relation:""}]);},[]); // Adds a new relation to the relations array
     const handleRelationChange=useCallback((index:number,field:keyof Relation,value:string)=>{setRelations((prevRelations)=>{const newRelations=[...prevRelations];newRelations[index][field]=value;return newRelations;});},[]); // Updates a specific field of a relation at a given index
     const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+        event.preventDefault(); // Prevent the default form submission behavior
         // Validate required fields
         if (!name) return alert("Name is required"); // Check if name is empty
         if (!age) return alert("Age is required"); // Check if age is empty
